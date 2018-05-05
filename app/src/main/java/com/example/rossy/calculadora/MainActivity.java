@@ -7,50 +7,30 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;
 
+import java.util.ArrayList;
+import java.util.List;
+
 
 public class MainActivity extends AppCompatActivity {
 
 
     public TextView mostrador;
+    public TextView historialLabel;
     public double operador1, operador2, resultado;
     int operacion;
-
-    /*
-    int contador;
-
-
-    public void onPause(){
-        super.onPause();
-
-        SharedPreferences datos= PreferenceManager.getDefaultSharedPreferences(this);
-        SharedPreferences.Editor miEditor=datos.edit();
-
-        miEditor.putInt("cuenta", contador);
-        miEditor.apply();
-    }
-
-    public void onResume(){
-        super.onResume();
-
-        SharedPreferences datos= PreferenceManager.getDefaultSharedPreferences(this);
-
-        contador=datos.getInt("cuenta", 0);
-        mostrador.setText("" + contador);
-
-
-    }
-
-*/
+    int i;
+    List<String> history= new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        mostrador =(TextView)findViewById(R.id.resultado);
-
+        mostrador =findViewById(R.id.resultado);
+        historialLabel = findViewById(R.id.historialLabel);
+        for(i = 0; i < 6 ; i++) {
+            historialLabel.setText(" ");
+        }
     }
-
-
 
     public void uno (View view){
         String cap= mostrador.getText().toString();
@@ -164,24 +144,29 @@ public class MainActivity extends AppCompatActivity {
 
         if (operacion==1){
             resultado=operador1+operador2;
+            history.add(String.valueOf(operador1 + " + " + operador2 + " = " + resultado));
 
         }
         else if (operacion==2){
             resultado=operador1-operador2;
+            history.add(String.valueOf(operador1 + " - " + operador2 + " = " + resultado));
         }
         else if (operacion==3){
             resultado=operador1*operador2;
+            history.add(String.valueOf(operador1 + " x " + operador2 + " = " + resultado));
         }
         else if (operacion==4){
             if (operador2==0){
                 mostrador.setText("No puede dividir entre 0");
             }else {
                 resultado = operador1/operador2;
+                history.add(String.valueOf(operador1 + " / " + operador2 + " = " + resultado));
             }
         }
 
         mostrador.setText(""+resultado);
         operador1=resultado;
+
     }
 
     public void limpiar (View view){
@@ -191,6 +176,10 @@ public class MainActivity extends AppCompatActivity {
         resultado=0.0;
     }
 
-
+    public void historial (View view){
+        for(i = 0; i < 6 ; i++) {
+            historialLabel.setText(i);
+        }
+    }
 
 }

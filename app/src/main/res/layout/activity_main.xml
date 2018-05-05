@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -8,6 +8,14 @@
     tools:context=".MainActivity"
     android:orientation="vertical">
 
+    <TextView
+        android:id="@+id/resultado"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="15dp"
+        android:text=" "
+        android:textColor="#1e1eda"
+        android:textSize="25dp" />
 
     <TableLayout
         android:layout_width="match_parent"
@@ -181,63 +189,52 @@
 
         </TableRow>
     </TableLayout>
-    <TableLayout
-        android:layout_width="match_parent"
-        android:layout_height="248dp"
-        android:layout_marginTop="80dp"
-        android:gravity="center"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:ignore="MissingConstraints"
-        tools:layout_editor_absoluteX="12dp">
-        <TableRow>
-            <TextView
-                android:id="@+id/resultado"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:padding="15dp"
-                android:text=" "
-                android:textColor="#1e1eda"
-                android:textSize="25dp" />
-        </TableRow>
-        <TableRow>
-            <TextView
-                android:id="@+id/historialLabel1"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:paddingBottom="40dp"/>
-        </TableRow>
-        <TableRow>
-            <TextView
-                android:id="@+id/historialLabel2"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:paddingBottom="40dp"
-                android:layout_below="@+id/historialLabel1"/>
-        </TableRow>
-        <TableRow>
-            <TextView
-                android:id="@+id/historialLabel3"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:paddingBottom="40dp"
-                android:layout_below="@+id/historialLabel2"/>
-        </TableRow>
-        <TableRow>
-            <TextView
-                android:id="@+id/historialLabel4"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:paddingBottom="40dp"
-                android:layout_below="@+id/historialLabel3"/>
-        </TableRow>
-        <TableRow>
-            <TextView
-                android:id="@+id/historialLabel5"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:paddingBottom="40dp"
-                android:layout_below="@+id/historialLabel4"/>
-        </TableRow>
-    </TableLayout>
 
-</android.support.constraint.ConstraintLayout>
+
+        <TableLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:layout_marginTop="220dp"
+            android:layout_marginLeft="70dp">
+            <TableRow>
+                <TextView
+                    android:id="@+id/historialLabel1"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:paddingBottom="10dp"/>
+            </TableRow>
+            <TableRow>
+                <TextView
+                    android:id="@+id/historialLabel2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:paddingBottom="10dp"
+                    android:layout_below="@+id/historialLabel1"/>
+            </TableRow>
+            <TableRow>
+                <TextView
+                    android:id="@+id/historialLabel3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:paddingBottom="10dp"
+                    android:layout_below="@+id/historialLabel2"/>
+            </TableRow>
+            <TableRow>
+                <TextView
+                    android:id="@+id/historialLabel4"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:paddingBottom="10dp"
+                    android:layout_below="@+id/historialLabel3"/>
+            </TableRow>
+            <TableRow>
+                <TextView
+                    android:id="@+id/historialLabel5"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:paddingBottom="10dp"
+                    android:layout_below="@+id/historialLabel4"/>
+            </TableRow>
+        </TableLayout>
+</RelativeLayout>

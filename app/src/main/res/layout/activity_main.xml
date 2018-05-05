@@ -5,31 +5,9 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#A4A4A4"
-    tools:context=".MainActivity">
+    tools:context=".MainActivity"
+    android:orientation="vertical">
 
-
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="80dp"
-        android:background="#FFFFFF">
-
-
-        <TextView
-            android:id="@+id/resultado"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:padding="15dp"
-            android:text=" "
-            android:textColor="#1e1eda"
-            android:textSize="25dp" />
-        <TextView
-            android:id="@+id/historialLabel"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:paddingBottom="40dp"/>
-
-
-    </RelativeLayout>
 
     <TableLayout
         android:layout_width="match_parent"
@@ -201,7 +179,64 @@
                 android:onClick="igual"
                 android:text="=" />
 
-
+        </TableRow>
+    </TableLayout>
+    <TableLayout
+        android:layout_width="match_parent"
+        android:layout_height="248dp"
+        android:layout_marginTop="80dp"
+        android:gravity="center"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="MissingConstraints"
+        tools:layout_editor_absoluteX="12dp">
+        <TableRow>
+            <TextView
+                android:id="@+id/resultado"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:padding="15dp"
+                android:text=" "
+                android:textColor="#1e1eda"
+                android:textSize="25dp" />
+        </TableRow>
+        <TableRow>
+            <TextView
+                android:id="@+id/historialLabel1"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:paddingBottom="40dp"/>
+        </TableRow>
+        <TableRow>
+            <TextView
+                android:id="@+id/historialLabel2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingBottom="40dp"
+                android:layout_below="@+id/historialLabel1"/>
+        </TableRow>
+        <TableRow>
+            <TextView
+                android:id="@+id/historialLabel3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingBottom="40dp"
+                android:layout_below="@+id/historialLabel2"/>
+        </TableRow>
+        <TableRow>
+            <TextView
+                android:id="@+id/historialLabel4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingBottom="40dp"
+                android:layout_below="@+id/historialLabel3"/>
+        </TableRow>
+        <TableRow>
+            <TextView
+                android:id="@+id/historialLabel5"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingBottom="40dp"
+                android:layout_below="@+id/historialLabel4"/>
         </TableRow>
     </TableLayout>
 

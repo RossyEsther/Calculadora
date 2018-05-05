@@ -15,10 +15,16 @@ public class MainActivity extends AppCompatActivity {
 
 
     public TextView mostrador;
-    public TextView historialLabel;
+    public TextView historialLabel1;
+    public TextView historialLabel2;
+    public TextView historialLabel3;
+    public TextView historialLabel4;
+    public TextView historialLabel5;
     public double operador1, operador2, resultado;
     int operacion;
     int i;
+    int size;
+    int fiveValues;
     List<String> history= new ArrayList<>();
 
     @Override
@@ -26,9 +32,13 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         mostrador =findViewById(R.id.resultado);
-        historialLabel = findViewById(R.id.historialLabel);
+        historialLabel1 = findViewById(R.id.historialLabel1);
+        historialLabel2 = findViewById(R.id.historialLabel2);
+        historialLabel3 = findViewById(R.id.historialLabel3);
+        historialLabel4 = findViewById(R.id.historialLabel4);
+        historialLabel5 = findViewById(R.id.historialLabel5);
         for(i = 0; i < 6 ; i++) {
-            historialLabel.setText(" ");
+            history.add(i," ");
         }
     }
 
@@ -166,7 +176,8 @@ public class MainActivity extends AppCompatActivity {
 
         mostrador.setText(""+resultado);
         operador1=resultado;
-
+        size = history.size() - 1;
+        fiveValues = size - 5;
     }
 
     public void limpiar (View view){
@@ -174,12 +185,19 @@ public class MainActivity extends AppCompatActivity {
         operador1=0.0;
         operador2=0.0;
         resultado=0.0;
+        historialLabel1.setText("");
+        historialLabel2.setText("");
+        historialLabel3.setText("");
+        historialLabel4.setText("");
+        historialLabel5.setText("");
     }
 
     public void historial (View view){
-        for(i = 0; i < 6 ; i++) {
-            historialLabel.setText(i);
-        }
+        historialLabel1.setText(history.get(size));
+        historialLabel2.setText(history.get(size-1));
+        historialLabel3.setText(history.get(size-2));
+        historialLabel4.setText(history.get(size-3));
+        historialLabel5.setText(history.get(size-4));
     }
 
 }

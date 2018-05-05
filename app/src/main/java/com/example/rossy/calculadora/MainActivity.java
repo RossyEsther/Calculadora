@@ -1,7 +1,5 @@
 package com.example.rossy.calculadora;
 
-import android.content.SharedPreferences;
-import android.preference.PreferenceManager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -15,30 +13,27 @@ public class MainActivity extends AppCompatActivity {
 
 
     public TextView mostrador;
-    public TextView historialLabel1;
-    public TextView historialLabel2;
-    public TextView historialLabel3;
-    public TextView historialLabel4;
-    public TextView historialLabel5;
-    public double operador1, operador2, resultado;
-    int operacion;
-    int i;
-    int size;
-    int fiveValues;
-    List<String> history= new ArrayList<>();
+    public TextView historicalFirstPosition;
+    public TextView historicalSecondPosition;
+    public TextView historicalThirdPosition;
+    public TextView historicalFourthPosition;
+    public TextView historicalFifthPosition;
+    public double operator1, operator2, resultant;
+    int operation,index,size,fiveValues;
+    List<String> historical = new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         mostrador =findViewById(R.id.resultado);
-        historialLabel1 = findViewById(R.id.historialLabel1);
-        historialLabel2 = findViewById(R.id.historialLabel2);
-        historialLabel3 = findViewById(R.id.historialLabel3);
-        historialLabel4 = findViewById(R.id.historialLabel4);
-        historialLabel5 = findViewById(R.id.historialLabel5);
-        for(i = 0; i < 6 ; i++) {
-            history.add(i," ");
+        historicalFirstPosition = findViewById(R.id.historialLabel1);
+        historicalSecondPosition = findViewById(R.id.historialLabel2);
+        historicalThirdPosition = findViewById(R.id.historialLabel3);
+        historicalFourthPosition = findViewById(R.id.historialLabel4);
+        historicalFifthPosition = findViewById(R.id.historialLabel5);
+        for(index = 0; index < 6 ; index++) {
+            historical.add(index," ");
         }
     }
 
@@ -112,92 +107,96 @@ public class MainActivity extends AppCompatActivity {
     public void suma (View view){
         try {
             String aux1= mostrador.getText().toString();
-            operador1=Double.parseDouble(aux1);
+            operator1 =Double.parseDouble(aux1);
         }catch (NumberFormatException nfe){}
         mostrador.setText("");
-        operacion=1;
+        operation =1;
     }
 
     public void resta (View view){
         try {
             String aux1= mostrador.getText().toString();
-            operador1=Double.parseDouble(aux1);
+            operator1 =Double.parseDouble(aux1);
         }catch (NumberFormatException nfe){}
         mostrador.setText("");
-        operacion=2;
+        operation =2;
     }
 
     public void por (View view){
         try {
             String aux1= mostrador.getText().toString();
-            operador1=Double.parseDouble(aux1);
+            operator1 =Double.parseDouble(aux1);
         }catch (NumberFormatException nfe){}
         mostrador.setText("");
-        operacion=3;
+        operation =3;
     }
 
     public void entre (View view){
         try {
             String aux1= mostrador.getText().toString();
-            operador1=Double.parseDouble(aux1);
+            operator1 =Double.parseDouble(aux1);
         }catch (NumberFormatException nfe){}
         mostrador.setText("");
-        operacion=4 ;
+        operation =4 ;
     }
 
     public void igual (View view){
-        try {
+        try
+        {
             String aux2= mostrador.getText().toString();
-            operador2=Double.parseDouble(aux2);
-        }catch (NumberFormatException nfe){}
+            operator2 = Double.parseDouble(aux2);
+        }
+        catch (NumberFormatException nfe){}
+
         mostrador.setText("");
 
-        if (operacion==1){
-            resultado=operador1+operador2;
-            history.add(String.valueOf(operador1 + " + " + operador2 + " = " + resultado));
+        if (operation == 1){
+            resultant = operator1 + operator2;
+            historical.add(String.valueOf(operator1 + " + " + operator2 + " = " + resultant));
 
         }
-        else if (operacion==2){
-            resultado=operador1-operador2;
-            history.add(String.valueOf(operador1 + " - " + operador2 + " = " + resultado));
+        else if (operation == 2){
+            resultant = operator1 - operator2;
+            historical.add(String.valueOf(operator1 + " - " + operator2 + " = " + resultant));
         }
-        else if (operacion==3){
-            resultado=operador1*operador2;
-            history.add(String.valueOf(operador1 + " x " + operador2 + " = " + resultado));
+        else if (operation == 3){
+            resultant = operator1 * operator2;
+            historical.add(String.valueOf(operator1 + " x " + operator2 + " = " + resultant));
         }
-        else if (operacion==4){
-            if (operador2==0){
+        else if (operation == 4){
+
+            if (operator2 == 0){
                 mostrador.setText("No puede dividir entre 0");
             }else {
-                resultado = operador1/operador2;
-                history.add(String.valueOf(operador1 + " / " + operador2 + " = " + resultado));
+                resultant = operator1 / operator2;
+                historical.add(String.valueOf(operator1 + " / " + operator2 + " = " + resultant));
             }
         }
 
-        mostrador.setText(""+resultado);
-        operador1=resultado;
-        size = history.size() - 1;
+        mostrador.setText(""+ resultant);
+        operator1 = resultant;
+        size = historical.size() - 1;
         fiveValues = size - 5;
     }
 
     public void limpiar (View view){
         mostrador.setText("");
-        operador1=0.0;
-        operador2=0.0;
-        resultado=0.0;
-        historialLabel1.setText("");
-        historialLabel2.setText("");
-        historialLabel3.setText("");
-        historialLabel4.setText("");
-        historialLabel5.setText("");
+        operator1 =0.0;
+        operator2 =0.0;
+        resultant =0.0;
+        historicalFirstPosition.setText("");
+        historicalSecondPosition.setText("");
+        historicalThirdPosition.setText("");
+        historicalFourthPosition.setText("");
+        historicalFifthPosition.setText("");
     }
 
     public void historial (View view){
-        historialLabel1.setText(history.get(size));
-        historialLabel2.setText(history.get(size-1));
-        historialLabel3.setText(history.get(size-2));
-        historialLabel4.setText(history.get(size-3));
-        historialLabel5.setText(history.get(size-4));
+        historicalFirstPosition.setText(historical.get(size));
+        historicalSecondPosition.setText(historical.get(size-1));
+        historicalThirdPosition.setText(historical.get(size-2));
+        historicalFourthPosition.setText(historical.get(size-3));
+        historicalFifthPosition.setText(historical.get(size-4));
     }
 
 }

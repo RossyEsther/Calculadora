@@ -37,7 +37,7 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="2"
                 android:onClick="historial"
-                android:text="Historial" />
+                android:text="@string/Historial" />
 
             <Button
                 android:id="@+id/limpiar"
@@ -45,7 +45,7 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:onClick="limpiar"
-                android:text="AC" />
+                android:text="@string/AC"/>
 
             <Button
                 android:id="@+id/mas"
